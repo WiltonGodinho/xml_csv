@@ -2,7 +2,8 @@ const fs = require('fs');
 const sax = require('sax');
 const { format } = require('fast-csv');
 const saxStream = sax.createStream(true);
-const writableStream = fs.createWriteStream('prod_orders_2_28.csv');
+// const writableStream = fs.createWriteStream('US_orders_2_29_1_day.csv');
+const writableStream = fs.createWriteStream('12_25_2023_1_month_usa.csv');
 
 let currentElement = '';
 let record = {};
@@ -55,6 +56,6 @@ saxStream.on('error', (e) => {
 });
 
 // Replace 'largefile.xml' with the path to your large XML file
-//const readableStream = fs.createReadStream('2024-02-21-prod.xml');
-const readableStream = fs.createReadStream('US_prod_orders_2_28_30_days.xml');
+
+const readableStream = fs.createReadStream('12_25_2023_1_month_usa.xml');
 readableStream.pipe(saxStream);
